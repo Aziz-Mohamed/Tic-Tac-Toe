@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const player = ({gameBoard, setGameBoard ,player, setPlayer}) => {
+function Player  ({gameBoard, setGameBoard ,player, setPlayer}) {
   const [edit, setEdit] = useState('Edit');
 
   const handleClick = () => {
@@ -14,7 +14,7 @@ const handleChangePlayerName = (e)=>{
   return (
     <>
       <div className="player">
-        {edit === 'Edit' ? (<h2>{gameBoard.playerName}</h2>) : (
+        {edit === 'Edit' ? (<h2>{player}</h2>) : (
           <input
             placeholder="Enter your name"
             value={player}
@@ -29,4 +29,4 @@ const handleChangePlayerName = (e)=>{
   )
 }
 
-export default player
+export default Player
