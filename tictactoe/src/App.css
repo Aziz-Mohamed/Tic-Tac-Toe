@@ -17,3 +17,11 @@
   background-color: lightblue;
   border: none;
 }
+.dash-board{
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+}

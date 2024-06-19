@@ -15,7 +15,7 @@ console.log(reversedLogList);
             {log.value === 'x' ? "Player One" : "Player Two"} hits the square :{" "}
             {log.id}
           </li>
-        ) : null // Return null for non-clicked boxes (avoids extra nodes)
+        ) : null 
       ))}
     </ol>
   )
