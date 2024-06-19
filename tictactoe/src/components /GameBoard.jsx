@@ -2,6 +2,18 @@
 import { useState } from 'react';
 
 
+export let initialGameBoard = [
+  {id: 1, value: null, order: null, isClicked: false}, 
+  {id: 2, value: null, order: null, isClicked: false}, 
+  {id: 3, value: null, order: null, isClicked: false},
+  {id: 4, value: null, order: null, isClicked: false}, 
+  {id: 5, value: null, order: null, isClicked: false}, 
+  {id: 6, value: null, order: null, isClicked: false},
+  {id: 7, value: null, order: null, isClicked: false}, 
+  {id: 8, value: null, order: null, isClicked: false}, 
+  {id: 9, value: null, order: null, isClicked: false}
+];
+
 function GameBoard({gameBoard, setGameBoard}) {
   const [clickCount, setClickCount] = useState(0); 
 
@@ -11,7 +23,7 @@ function GameBoard({gameBoard, setGameBoard}) {
         if (box.id === boxId && !box.isClicked) {
           const newOrder = clickCount + 1;
           const newValue = newOrder % 2 !== 0 ? 'x' : 'o';
-          console.log(newOrder);
+          // console.log(newOrder);
           return {
             ...box,
             value: newValue,
@@ -26,11 +38,11 @@ function GameBoard({gameBoard, setGameBoard}) {
     setClickCount(prevCount => prevCount + 1);
   };
   // console.log(`GameBoard: ${gameBoard}`);
-  console.log(`GameBoard: ${JSON.stringify(gameBoard)}`);
+  // console.log(`GameBoard: ${JSON.stringify(gameBoard)}`);
   
   return (
     <>
-      <h1>Gameboard component</h1>
+      <h1> Gameboard component</h1>
       <ol className="box-container">
         {gameBoard.map(box => (
           <li key={box.id} className="box">
