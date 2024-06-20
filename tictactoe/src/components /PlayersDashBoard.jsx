@@ -1,12 +1,24 @@
 import Player from './Player';
+import PropTypes from 'prop-types' ;
+import { useContext } from 'react';
+import { Context } from '../App';
 
-function PlayersDashBoard({gameBoard, setGameBoard, firstPlayer, setFirstPlayer, secondPlayer, setSecondPlayer}) {
+function PlayersDashBoard() {
+  const {firstPlayer, setFirstPlayer, secondPlayer, setSecondPlayer} = useContext(Context);
+
+
   return (
   <>
-    <Player gameBoard={gameBoard} setGameBoard={setGameBoard} Player={firstPlayer} setPlayer={setFirstPlayer}/>
-    <Player gameBoard={gameBoard} setGameBoard={setGameBoard} Player={secondPlayer} setPlayer={setSecondPlayer}/>
+    <Player  player={firstPlayer} setPlayer={setFirstPlayer}/>
+    <Player  player={secondPlayer} setPlayer={setSecondPlayer}/>
   </>
   )
 }
 
-export default PlayersDashBoard
+PlayersDashBoard.propTypes = {
+  Context: PropTypes.object,
+}
+
+
+  export default PlayersDashBoard
+  

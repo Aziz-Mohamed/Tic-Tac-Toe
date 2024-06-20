@@ -1,30 +1,11 @@
 
 import { useState } from 'react';
-
-
-
-
-
-
-export let initialGameBoard = [
-  {id: 1, value: null, order: null, isClicked: false }, 
-  {id: 2, value: null, order: null, isClicked: false }, 
-  {id: 3, value: null, order: null, isClicked: false },
-  {id: 4, value: null, order: null, isClicked: false }, 
-  {id: 5, value: null, order: null, isClicked: false }, 
-  {id: 6, value: null, order: null, isClicked: false },
-  {id: 7, value: null, order: null, isClicked: false }, 
-  {id: 8, value: null, order: null, isClicked: false }, 
-  {id: 9, value: null, order: null, isClicked: false }
-];
-
-
-
-
-
+import { handleWinner } from './handleWinner';
 
 function GameBoard({gameBoard, setGameBoard}) {
   const [clickCount, setClickCount] = useState(0); 
+  const [winner, setWinner] = useState('')
+
 
   const handleClick = (boxId) => {
     setGameBoard(prevGameBoard => {
@@ -45,6 +26,7 @@ function GameBoard({gameBoard, setGameBoard}) {
     });
 
     setClickCount(prevCount => prevCount + 1);
+    handleWinner(gameBoard);
   };
   // console.log(`GameBoard: ${gameBoard}`);
   // console.log(`GameBoard: ${JSON.stringify(gameBoard)}`);
@@ -66,78 +48,3 @@ function GameBoard({gameBoard, setGameBoard}) {
 }
 
 export default GameBoard;
-
-
-
-
-
-
-
-
-
-
-
-
-// import { useState, useRef } from 'react'
-
-// let initialGameBoard = [
-//   {id:1 ,value: null , order:null, isClicked: false }, {id:2 ,value: null , order:null, isClicked: false }, {id:3 ,value: null , order:null, isClicked: false },
-//   {id:4 ,value: null , order:null, isClicked: false }, {id:5 ,value: null , order:null, isClicked: false }, {id:6 ,value: null , order:null, isClicked: false },
-//   {id:7 ,value: null , order:null, isClicked: false }, {id:8 ,value: null , order:null, isClicked: false }, {id:9 ,value: null , order:null, isClicked: false }
-// ]
-
-
-// function GameBoard() {
-//   const [gameBoard, setGameBoard] = useState(initialGameBoard);
-//   let newOrder = useRef(1);
-
-//   const handleClick = (boxId) => {
-//     setGameBoard( (prevGameBoard)=>{
-//       let newGameBoard = [...prevGameBoard];
-//       let clickedBox = newGameBoard.find(box => box.id === boxId);
-//       let {value , order, isClicked} = clickedBox;
-
-//       if (isClicked === false){
-//         if(order === null){ order = newOrder }
-//         if(newOrder % 2 !== 0) {
-//           value = "x";
-//         }else{
-//           value ="o";
-//         }
-//         isClicked = true;
-//         newOrder ++ ;
-//       }else{
-//         console.log('The button already clicked once !')
-//       }
-      
-//     } )
-//   }
-
-
-//   console.log(`GameBoard : ${gameBoard}`)
-//   return (
-//     <>
-//     <h1>Gameboard component</h1>
-//       <ol className='box-container'>
-//         { gameBoard.map(box => (
-//           <li key={box.id} className='box' > 
-//             <button onClick={() => { handleClick(box.id) } }  >
-//               {box.value}
-//             </button>
-//           </li>
-//         ))}
-//       </ol>
-//     </>
-//   )
-// }
-
-// export default GameBoard
-
-
-
-
-
-
-
-
-

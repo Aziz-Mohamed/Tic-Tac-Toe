@@ -1,16 +1,18 @@
 import { useState } from "react";
+import PropTypes from 'prop-types' ;
 
-function Player  ({gameBoard, setGameBoard ,player, setPlayer}) {
+function Player  ({player, setPlayer}) {
   const [edit, setEdit] = useState('Edit');
 
   const handleClick = () => {
     setEdit((prev) => prev === 'Edit' ? 'Save' : 'Edit')
   }
   
-const handleChangePlayerName = (e)=>{
-    setPlayer(e.target.value)
-}
+  const handleChangePlayerName = (e)=>{
+      setPlayer(e.target.value)
+  }
 
+  // console.log(`from player component ${player}`)
   return (
     <>
       <div className="player">
@@ -27,6 +29,11 @@ const handleChangePlayerName = (e)=>{
       </div>
     </>
   )
+}
+
+Player.propTypes = {
+  player: PropTypes.string,
+  setPlayer: PropTypes.func,
 }
 
 export default Player

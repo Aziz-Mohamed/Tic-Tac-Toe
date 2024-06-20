@@ -25,3 +25,7 @@
   align-items: center;
   gap: 100px;
 }
+.unstyledList{
+  list-style: none;
+  padding: 0;
+}
