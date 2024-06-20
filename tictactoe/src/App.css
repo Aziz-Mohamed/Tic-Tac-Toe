@@ -29,3 +29,25 @@
   list-style: none;
   padding: 0;
 }
+.game-board{
+  position: relative;
+}
+.hidden{
+  visibility: hidden;
+}
+.visible{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease;
+  visibility:visible;
+  width: 80%;
+  height: 50%;
+  background-color: rgba(255, 255, 255, 50%);
+  color: blue;
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
